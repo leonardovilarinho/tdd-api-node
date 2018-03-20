@@ -9,7 +9,7 @@
     "api:lint": "eslint"
   },
   "jest" : {
-    "setupFiles": [ "./tests/setup.js" ]
+    "setupTestFrameworkScriptFile": "./tests/setup.js"
   },
   "devDependencies": {
     "@types/jest": "^22.2.0",

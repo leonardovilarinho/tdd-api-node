@@ -1,6 +1,5 @@
 const mongoose = require('mongoose')
 require('dotenv').config()
 
-mongoose.connect(process.env.DB_TEST, error => {
-  if (error) throw error
-})
+beforeAll(done => mongoose.connect(process.env.DB_TEST, done))
+afterAll(done => mongoose.connection.dropDatabase(done))
