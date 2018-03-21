@@ -5,10 +5,9 @@
   "scripts": {
     "api:dev": "nodemon source/index.js",
     "api:start": "node source/index.js",
-    "api:test": "jest",
-    "api:lint": "eslint"
+    "api:test": "jest"
   },
-  "jest" : {
+  "jest": {
     "setupTestFrameworkScriptFile": "./tests/setup.js"
   },
   "devDependencies": {
@@ -21,6 +20,7 @@
     "body-parser": "^1.18.2",
     "dotenv": "^5.0.1",
     "express": "^4.16.3",
+    "lodash": "^4.17.5",
     "mongoose": "^5.0.11"
   }
 }
