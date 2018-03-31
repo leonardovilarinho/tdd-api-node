@@ -2,7 +2,6 @@ const request = require('supertest')
 const app = require('../source/app')
 
 const template = { name: 'Leonardo', percent: 50 }
-const { assign } = Object
 const feature = '/partners'
 
 describe('Partner feature', () => {
@@ -17,7 +16,7 @@ describe('Partner feature', () => {
   })
 
   const testWithoutProperty = async (property, propertyName) => {
-    const partner = assign({}, template)
+    const partner = { ...template }
     delete partner[property]
     const { text, statusCode } = await request(app).post(feature).send(partner)
     const { error } = JSON.parse(text)
@@ -36,7 +35,7 @@ describe('Partner feature', () => {
   })
 
   const testBetweenPercentInvalid = async (percent) => {
-    const partner = assign({}, template, { percent })
+    const partner = { ...template, percent }
     const { text, statusCode } = await request(app).post(feature).send(partner)
     const { error } = JSON.parse(text)
 
@@ -55,7 +54,7 @@ describe('Partner feature', () => {
   })
 
   test('Sum of percents should <= 100', async () => {
-    const newPartner = assign({}, template, { percent: 51 })
+    const newPartner = { ...template, percent: 51 }
 
     const { text, statusCode } = await request(app).post(feature).send(newPartner)
     const { error } = JSON.parse(text)

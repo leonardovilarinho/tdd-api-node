@@ -5,14 +5,14 @@
   "scripts": {
     "api:dev": "nodemon source/index.js",
     "api:start": "node source/index.js",
-    "api:test": "jest"
+    "api:test": "jest --forceExit"
   },
   "jest": {
     "setupTestFrameworkScriptFile": "./tests/setup.js"
   },
   "devDependencies": {
     "@types/jest": "^22.2.0",
-    "jest": "^22.4.2",
+    "jest": "^22.3.0",
     "nodemon": "^1.17.2",
     "supertest": "^3.0.0"
   },
