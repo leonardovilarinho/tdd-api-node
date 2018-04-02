@@ -5,7 +5,7 @@ const template = { name: 'Leonardo', percent: 50 }
 const feature = '/partners'
 
 describe('Partner feature', () => {
-  test('Name should is a pure string and percent between 1 and 100', async () => {
+  test('Name should be is a pure string and percent between 1 and 100', async () => {
     const { text, statusCode } = await request(app).post(feature).send(template)
     const { error, partner } = JSON.parse(text)
 
@@ -44,16 +44,16 @@ describe('Partner feature', () => {
     expect(error).toContain('1 e 100')
   }
 
-  test('Percent should is > 0', async () => {
+  test('Percent should be is > 0', async () => {
     await testBetweenPercentInvalid(0)
     await testBetweenPercentInvalid(-1)
   })
 
-  test('Percent should is <= 100', async () => {
+  test('Percent should be is <= 100', async () => {
     await testBetweenPercentInvalid(101)
   })
 
-  test('Sum of percents should <= 100', async () => {
+  test('Sum of percents should be <= 100', async () => {
     const newPartner = { ...template, percent: 51 }
 
     const { text, statusCode } = await request(app).post(feature).send(newPartner)
